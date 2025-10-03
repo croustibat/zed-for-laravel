@@ -1,4 +1,4 @@
 # These are supported funding model platforms
 
 github: [croustibat]
-custom: ['https://paypal.me/croustibat']
+custom: ["https://paypal.me/croustibat"]
