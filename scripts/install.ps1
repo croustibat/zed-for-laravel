@@ -109,7 +109,7 @@ Write-Host "   - Type 'route' and press Tab for a route snippet"
 Write-Host "   - Type '@if' and press Tab for a Blade if statement"
 Write-Host "   - Type 'livewire-component' for a full Livewire component"
 Write-Host ""
-Write-Host "📖 Documentation: https://github.com/YOUR_USERNAME/zed-for-laravel" -ForegroundColor Cyan
+Write-Host "📖 Documentation: https://github.com/croustibat/zed-for-laravel" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "🙏 Thank you for using Zed for Laravel!" -ForegroundColor Magenta
 Write-Host ""
