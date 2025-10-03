@@ -1,6 +1,5 @@
 # 🚀 Zed for Laravel Starter Kit
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![GitHub stars](https://img.shields.io/github/stars/croustibat/zed-for-laravel?style=social)](https://github.com/croustibat/zed-for-laravel/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/croustibat/zed-for-laravel?style=social)](https://github.com/croustibat/zed-for-laravel/network/members)
 [![GitHub issues](https://img.shields.io/github/issues/croustibat/zed-for-laravel)](https://github.com/croustibat/zed-for-laravel/issues)
@@ -15,6 +14,7 @@ A complete configuration kit for [Zed Editor](https://zed.dev) optimized for Lar
 - ⌨️ **Keyboard Shortcuts** - Laravel-friendly keybindings
 - 🔧 **LSP Configuration** - PHP language server optimized for Laravel
 - 🎯 **Blade Support** - Full syntax highlighting and formatting
+- 🔌 **Auto Extension Install** - Installs essential Zed extensions automatically
 - 📦 **Git Integration** - Inline blame and gutter indicators
 - 🚀 **One-command Installation** - Automated setup scripts
 
@@ -25,18 +25,33 @@ A complete configuration kit for [Zed Editor](https://zed.dev) optimized for Lar
 - Laravel 10.x or 11.x project
 - Laravel Pint installed in your project (`composer require laravel/pint --dev`)
 
+## 🔌 Included Extensions
+
+These Zed extensions are **automatically installed** on first launch via the `auto_install_extensions` setting:
+
+- **[PHP](https://github.com/zed-extensions/php)** - PHP syntax highlighting and language server support
+- **[Laravel Blade](https://github.com/bajrangCoder/zed-laravel-blade)** - Blade template syntax support
+- **[Env](https://github.com/zed-extensions/env)** - .env file syntax highlighting
+- **[Tailwind CSS](https://github.com/zed-extensions/tailwindcss)** - Tailwind IntelliSense
+
+**Recommended optional extensions** (install manually via `Cmd/Ctrl + Shift + X`):
+- **[Vue](https://github.com/zed-extensions/vue)** - For Inertia.js projects with Vue
+- **[Alpine.js](https://github.com/zed-extensions/alpine)** - For Alpine.js syntax support
+
+Extensions will install automatically when you first launch Zed after installation. No manual action required! 🎉
+
 ## 🔧 Installation
 
 ### Automatic Installation (Recommended)
 
 #### macOS / Linux
 ```bash
-curl -fsSL https://raw.githubusercontent.com/croustibat/zed-for-laravel/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/zed-for-laravel/main/scripts/install.sh | bash
 ```
 
 Or download and run:
 ```bash
-git clone https://github.com/croustibat/zed-for-laravel.git
+git clone https://github.com/YOUR_USERNAME/zed-for-laravel.git
 cd zed-for-laravel
 chmod +x scripts/install.sh
 ./scripts/install.sh
@@ -44,12 +59,12 @@ chmod +x scripts/install.sh
 
 #### Windows (PowerShell)
 ```powershell
-irm https://raw.githubusercontent.com/croustibat/zed-for-laravel/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/YOUR_USERNAME/zed-for-laravel/main/scripts/install.ps1 | iex
 ```
 
 Or download and run:
 ```powershell
-git clone https://github.com/croustibat/zed-for-laravel.git
+git clone https://github.com/YOUR_USERNAME/zed-for-laravel.git
 cd zed-for-laravel
 .\scripts\install.ps1
 ```
@@ -196,7 +211,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you find this project helpful, please consider:
 - Starring the repository ⭐
 - Sharing it with other Laravel developers
-- [Sponsoring the project](https://github.com/sponsors/croustibat)
+- [Sponsoring the project](https://github.com/sponsors/YOUR_USERNAME)
 
 ---
 
