@@ -1,0 +1,209 @@
+{
+  "If Statement": {
+    "prefix": "@if",
+    "body": ["@if (${1:condition})", "    ${2:// content}", "@endif"],
+    "description": "Blade if statement"
+  },
+  "If Else Statement": {
+    "prefix": "@ifelse",
+    "body": [
+      "@if (${1:condition})",
+      "    ${2:// content}",
+      "@else",
+      "    ${3:// content}",
+      "@endif"
+    ],
+    "description": "Blade if-else statement"
+  },
+  "Foreach Loop": {
+    "prefix": "@foreach",
+    "body": [
+      "@foreach (${1:\\$items} as ${2:\\$item})",
+      "    ${3:// content}",
+      "@endforeach"
+    ],
+    "description": "Blade foreach loop"
+  },
+  "Forelse Loop": {
+    "prefix": "@forelse",
+    "body": [
+      "@forelse (${1:\\$items} as ${2:\\$item})",
+      "    ${3:// content}",
+      "@empty",
+      "    ${4:// empty state}",
+      "@endforelse"
+    ],
+    "description": "Blade forelse loop"
+  },
+  "Switch Statement": {
+    "prefix": "@switch",
+    "body": [
+      "@switch(${1:\\$variable})",
+      "    @case(${2:value1})",
+      "        ${3:// content}",
+      "        @break",
+      "    @case(${4:value2})",
+      "        ${5:// content}",
+      "        @break",
+      "    @default",
+      "        ${6:// default content}",
+      "@endswitch"
+    ],
+    "description": "Blade switch statement"
+  },
+  "Extends Layout": {
+    "prefix": "@extends",
+    "body": ["@extends('${1:layouts.app}')"],
+    "description": "Extend a Blade layout"
+  },
+  "Section": {
+    "prefix": "@section",
+    "body": ["@section('${1:name}')", "    ${2:// content}", "@endsection"],
+    "description": "Define a section"
+  },
+  "Yield": {
+    "prefix": "@yield",
+    "body": ["@yield('${1:name}')"],
+    "description": "Yield section content"
+  },
+  "Include": {
+    "prefix": "@include",
+    "body": ["@include('${1:view.name}')"],
+    "description": "Include a view"
+  },
+  "Include With Data": {
+    "prefix": "@includewith",
+    "body": ["@include('${1:view.name}', ['${2:key}' => ${3:value}])"],
+    "description": "Include a view with data"
+  },
+  "Component": {
+    "prefix": "component",
+    "body": [
+      "<x-${1:component-name} ${2::attribute=\"value\"}>",
+      "    ${3:// content}",
+      "</x-${1:component-name}>"
+    ],
+    "description": "Blade component"
+  },
+  "Slot": {
+    "prefix": "slot",
+    "body": ["<x-slot:${1:name}>", "    ${2:// content}", "</x-slot>"],
+    "description": "Named slot"
+  },
+  "Props": {
+    "prefix": "@props",
+    "body": ["@props(['${1:attribute}' => ${2:'default'}])"],
+    "description": "Component props"
+  },
+  "Auth Check": {
+    "prefix": "@auth",
+    "body": ["@auth", "    ${1:// authenticated content}", "@endauth"],
+    "description": "Check if user is authenticated"
+  },
+  "Guest Check": {
+    "prefix": "@guest",
+    "body": ["@guest", "    ${1:// guest content}", "@endguest"],
+    "description": "Check if user is guest"
+  },
+  "Can Authorization": {
+    "prefix": "@can",
+    "body": [
+      "@can('${1:ability}', ${2:\\$model})",
+      "    ${3:// authorized content}",
+      "@endcan"
+    ],
+    "description": "Authorization check"
+  },
+  "CSRF Token": {
+    "prefix": "@csrf",
+    "body": ["@csrf"],
+    "description": "CSRF token field"
+  },
+  "Method Spoofing": {
+    "prefix": "@method",
+    "body": ["@method('${1|PUT,PATCH,DELETE|}')"],
+    "description": "HTTP method spoofing"
+  },
+  "Error Display": {
+    "prefix": "@error",
+    "body": [
+      "@error('${1:field}')",
+      "    <div class=\"${2:error-class}\">{{ \\$message }}</div>",
+      "@enderror"
+    ],
+    "description": "Display validation error"
+  },
+  "Push to Stack": {
+    "prefix": "@push",
+    "body": ["@push('${1:stack-name}')", "    ${2:// content}", "@endpush"],
+    "description": "Push content to stack"
+  },
+  "Stack": {
+    "prefix": "@stack",
+    "body": ["@stack('${1:stack-name}')"],
+    "description": "Render a stack"
+  },
+  "Once": {
+    "prefix": "@once",
+    "body": ["@once", "    ${1:// content rendered once}", "@endonce"],
+    "description": "Render content once per rendering cycle"
+  },
+  "JSON Directive": {
+    "prefix": "@json",
+    "body": ["@json(${1:\\$variable})"],
+    "description": "Encode variable as JSON"
+  },
+  "DD Directive": {
+    "prefix": "@dd",
+    "body": ["@dd(${1:\\$variable})"],
+    "description": "Dump and die"
+  },
+  "Dump Directive": {
+    "prefix": "@dump",
+    "body": ["@dump(${1:\\$variable})"],
+    "description": "Dump variable"
+  },
+  "Env Directive": {
+    "prefix": "@env",
+    "body": [
+      "@env('${1:local}')",
+      "    ${2:// environment specific content}",
+      "@endenv"
+    ],
+    "description": "Environment specific content"
+  },
+  "Production Directive": {
+    "prefix": "@production",
+    "body": [
+      "@production",
+      "    ${1:// production only content}",
+      "@endproduction"
+    ],
+    "description": "Production environment check"
+  },
+  "Session Has": {
+    "prefix": "@session",
+    "body": ["@session('${1:key}')", "    ${2:// content}", "@endsession"],
+    "description": "Check if session has key"
+  },
+  "Old Input": {
+    "prefix": "old",
+    "body": ["{{ old('${1:field}', ${2:'default'}) }}"],
+    "description": "Retrieve old input"
+  },
+  "Asset Helper": {
+    "prefix": "asset",
+    "body": ["{{ asset('${1:path}') }}"],
+    "description": "Generate asset URL"
+  },
+  "Route Helper": {
+    "prefix": "route",
+    "body": ["{{ route('${1:name}') }}"],
+    "description": "Generate route URL"
+  },
+  "URL Helper": {
+    "prefix": "url",
+    "body": ["{{ url('${1:path}') }}"],
+    "description": "Generate URL"
+  }
+}

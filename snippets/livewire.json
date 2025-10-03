@@ -1,0 +1,244 @@
+{
+  "Livewire Component": {
+    "prefix": "livewire-component",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Livewire};",
+      "",
+      "use Livewire\\Component;",
+      "",
+      "class ${2:ComponentName} extends Component",
+      "{",
+      "    public ${3:\\$property};",
+      "",
+      "    public function mount()",
+      "    {",
+      "        ${4://}",
+      "    }",
+      "",
+      "    public function render()",
+      "    {",
+      "        return view('livewire.${5:component-name}');",
+      "    }",
+      "}"
+    ],
+    "description": "Full Livewire 3 component class"
+  },
+  "Livewire Property": {
+    "prefix": "livewire-property",
+    "body": ["public ${1:string} \\$${2:propertyName}${3: = ''};"],
+    "description": "Public property"
+  },
+  "Livewire Validate Attribute": {
+    "prefix": "livewire-validate",
+    "body": [
+      "#[Validate('${1:required|string|max:255}')]",
+      "public ${2:string} \\$${3:propertyName}${4: = ''};"
+    ],
+    "description": "Property with validation attribute"
+  },
+  "Livewire Mount Hook": {
+    "prefix": "livewire-mount",
+    "body": [
+      "public function mount(${1:\\$parameter})",
+      "{",
+      "    ${2://}",
+      "}"
+    ],
+    "description": "Mount lifecycle hook"
+  },
+  "Livewire Updated Hook": {
+    "prefix": "livewire-updated",
+    "body": [
+      "public function updated${1:PropertyName}()",
+      "{",
+      "    ${2://}",
+      "}"
+    ],
+    "description": "Updated lifecycle hook"
+  },
+  "Livewire Action Method": {
+    "prefix": "livewire-action",
+    "body": [
+      "public function ${1:actionName}()",
+      "{",
+      "    ${2:// action logic}",
+      "}"
+    ],
+    "description": "Action method"
+  },
+  "Livewire Dispatch Event": {
+    "prefix": "livewire-dispatch",
+    "body": ["\\$this->dispatch('${1:event-name}'${2:, ['key' => 'value']});"],
+    "description": "Dispatch event"
+  },
+  "Livewire On Attribute": {
+    "prefix": "livewire-on",
+    "body": [
+      "#[On('${1:event-name}')]",
+      "public function ${2:handleEvent}(${3:\\$parameter})",
+      "{",
+      "    ${4://}",
+      "}"
+    ],
+    "description": "Event listener with attribute"
+  },
+  "Livewire Computed Property": {
+    "prefix": "livewire-computed",
+    "body": [
+      "#[Computed]",
+      "public function ${1:propertyName}()",
+      "{",
+      "    return ${2:// computed value};",
+      "}"
+    ],
+    "description": "Computed property"
+  },
+  "Livewire Lazy": {
+    "prefix": "livewire-lazy",
+    "body": [
+      "#[Lazy]",
+      "public function placeholder()",
+      "{",
+      "    return view('${1:livewire.placeholder}');",
+      "}"
+    ],
+    "description": "Lazy loading component"
+  },
+  "Livewire Redirect": {
+    "prefix": "livewire-redirect",
+    "body": ["return \\$this->redirect(route('${1:name}'));"],
+    "description": "Redirect to route"
+  },
+  "Livewire With Pagination": {
+    "prefix": "livewire-pagination",
+    "body": [
+      "use Livewire\\WithPagination;",
+      "",
+      "class ${1:ComponentName} extends Component",
+      "{",
+      "    use WithPagination;",
+      "",
+      "    public function render()",
+      "    {",
+      "        return view('livewire.${2:component-name}', [",
+      "            '${3:items}' => ${4:Model}::paginate(${5:10})",
+      "        ]);",
+      "    }",
+      "}"
+    ],
+    "description": "Component with pagination"
+  },
+  "Livewire With File Uploads": {
+    "prefix": "livewire-upload",
+    "body": [
+      "use Livewire\\WithFileUploads;",
+      "",
+      "class ${1:ComponentName} extends Component",
+      "{",
+      "    use WithFileUploads;",
+      "",
+      "    #[Validate('${2:image|max:1024}')]",
+      "    public \\$${3:photo};",
+      "",
+      "    public function save()",
+      "    {",
+      "        \\$this->${3:photo}->store('${4:photos}');",
+      "    }",
+      "}"
+    ],
+    "description": "Component with file uploads"
+  },
+  "Livewire Form Object": {
+    "prefix": "livewire-form",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Livewire\\Forms};",
+      "",
+      "use Livewire\\Form;",
+      "",
+      "class ${2:FormName} extends Form",
+      "{",
+      "    #[Validate('${3:required|string}')]",
+      "    public string \\$${4:field} = '';",
+      "",
+      "    public function store()",
+      "    {",
+      "        ${5:// store logic}",
+      "    }",
+      "}"
+    ],
+    "description": "Livewire Form object"
+  },
+  "Wire Model": {
+    "prefix": "wire:model",
+    "body": ["wire:model${1:.live}=\"${2:property}\""],
+    "description": "Wire model directive"
+  },
+  "Wire Click": {
+    "prefix": "wire:click",
+    "body": ["wire:click=\"${1:method}\""],
+    "description": "Wire click directive"
+  },
+  "Wire Submit": {
+    "prefix": "wire:submit",
+    "body": ["wire:submit=\"${1:method}\""],
+    "description": "Wire submit directive"
+  },
+  "Wire Loading": {
+    "prefix": "wire:loading",
+    "body": ["<div wire:loading${1:.delay}>", "    ${2:Loading...}", "</div>"],
+    "description": "Wire loading indicator"
+  },
+  "Wire Target": {
+    "prefix": "wire:target",
+    "body": ["wire:target=\"${1:method}\""],
+    "description": "Wire loading target"
+  },
+  "Wire Poll": {
+    "prefix": "wire:poll",
+    "body": ["wire:poll${1:.5s}=\"${2:method}\""],
+    "description": "Wire poll directive"
+  },
+  "Wire Init": {
+    "prefix": "wire:init",
+    "body": ["wire:init=\"${1:method}\""],
+    "description": "Wire init directive"
+  },
+  "Wire Confirm": {
+    "prefix": "wire:confirm",
+    "body": ["wire:confirm=\"${1:Are you sure?}\""],
+    "description": "Wire confirm dialog"
+  },
+  "Wire Navigate": {
+    "prefix": "wire:navigate",
+    "body": ["wire:navigate"],
+    "description": "Wire navigate for SPA-like navigation"
+  },
+  "Livewire Validate": {
+    "prefix": "livewire-validate-method",
+    "body": [
+      "\\$this->validate([",
+      "    '${1:field}' => '${2:required|string|max:255}',",
+      "]);"
+    ],
+    "description": "Validate method call"
+  },
+  "Livewire Flash Message": {
+    "prefix": "livewire-flash",
+    "body": ["session()->flash('${1:message}', '${2:Success!}');"],
+    "description": "Flash message"
+  },
+  "Livewire Reset Property": {
+    "prefix": "livewire-reset",
+    "body": ["\\$this->reset('${1:property}');"],
+    "description": "Reset property"
+  },
+  "Livewire JS Method": {
+    "prefix": "livewire-js",
+    "body": ["\\$this->js('${1:console.log(\"Hello\")}');"],
+    "description": "Execute JavaScript"
+  }
+}

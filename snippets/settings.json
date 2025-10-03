@@ -1,0 +1,201 @@
+{
+  "theme": "One Dark",
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 14,
+  "ui_font_size": 16,
+  "tab_size": 4,
+  "hard_tabs": false,
+  "soft_wrap": "editor_width",
+  "show_whitespaces": "selection",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "format_on_save": "on",
+  "formatter": {
+    "external": {
+      "command": "bash",
+      "arguments": [
+        "-c",
+        "cat > {buffer_path} && ./vendor/bin/pint --quiet {buffer_path} && cat {buffer_path}"
+      ]
+    }
+  },
+  "languages": {
+    "PHP": {
+      "tab_size": 4,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bash",
+          "arguments": [
+            "-c",
+            "cat > {buffer_path} && ./vendor/bin/pint --quiet {buffer_path} && cat {buffer_path}"
+          ]
+        }
+      },
+      "language_servers": ["intelephense", "..."]
+    },
+    "Blade": {
+      "tab_size": 4,
+      "hard_tabs": false,
+      "file_types": ["blade", "blade.php"]
+    },
+    "JavaScript": {
+      "tab_size": 2,
+      "format_on_save": "on"
+    },
+    "TypeScript": {
+      "tab_size": 2,
+      "format_on_save": "on"
+    },
+    "Vue": {
+      "tab_size": 2,
+      "format_on_save": "on"
+    },
+    "CSS": {
+      "tab_size": 2,
+      "format_on_save": "on"
+    },
+    "JSON": {
+      "tab_size": 2,
+      "format_on_save": "on"
+    }
+  },
+  "lsp": {
+    "intelephense": {
+      "settings": {
+        "intelephense.files.associations": ["*.php", "*.blade.php"],
+        "intelephense.environment.phpVersion": "8.2.0",
+        "intelephense.stubs": [
+          "apache",
+          "bcmath",
+          "bz2",
+          "calendar",
+          "com_dotnet",
+          "Core",
+          "ctype",
+          "curl",
+          "date",
+          "dba",
+          "dom",
+          "enchant",
+          "exif",
+          "FFI",
+          "fileinfo",
+          "filter",
+          "fpm",
+          "ftp",
+          "gd",
+          "gettext",
+          "gmp",
+          "hash",
+          "iconv",
+          "imap",
+          "intl",
+          "json",
+          "ldap",
+          "libxml",
+          "mbstring",
+          "meta",
+          "mysqli",
+          "oci8",
+          "odbc",
+          "openssl",
+          "pcntl",
+          "pcre",
+          "PDO",
+          "pdo_ibm",
+          "pdo_mysql",
+          "pdo_pgsql",
+          "pdo_sqlite",
+          "pgsql",
+          "Phar",
+          "posix",
+          "pspell",
+          "readline",
+          "Reflection",
+          "session",
+          "shmop",
+          "SimpleXML",
+          "snmp",
+          "soap",
+          "sockets",
+          "sodium",
+          "SPL",
+          "sqlite3",
+          "standard",
+          "superglobals",
+          "sysvmsg",
+          "sysvsem",
+          "sysvshm",
+          "tidy",
+          "tokenizer",
+          "xml",
+          "xmlreader",
+          "xmlrpc",
+          "xmlwriter",
+          "xsl",
+          "Zend OPcache",
+          "zip",
+          "zlib"
+        ]
+      }
+    }
+  },
+  "file_types": {
+    "Blade": ["blade.php"],
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"]
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 600
+    }
+  },
+  "terminal": {
+    "shell": {
+      "program": "/bin/zsh"
+    },
+    "font_family": "JetBrains Mono",
+    "font_size": 14,
+    "working_directory": "current_project_directory"
+  },
+  "project_panel": {
+    "dock": "left",
+    "default_width": 240
+  },
+  "outline_panel": {
+    "dock": "right",
+    "default_width": 240
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true
+  },
+  "scrollbar": {
+    "show": "always",
+    "git_diff": true
+  },
+  "vertical_scroll_margin": 3,
+  "relative_line_numbers": false,
+  "seed_search_query_from_cursor": "always",
+  "show_completions_on_input": true,
+  "show_completion_documentation": true,
+  "completion_documentation_secondary_query_debounce": 300,
+  "inline_completions": {
+    "disabled_globs": [".env"]
+  },
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": true
+  },
+  "vim_mode": false,
+  "autosave": "on_focus_change",
+  "auto_update": true,
+  "hour_format": "hour24"
+}

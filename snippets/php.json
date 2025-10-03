@@ -1,0 +1,377 @@
+{
+  "Route GET": {
+    "prefix": "route",
+    "body": [
+      "Route::get('${1:uri}', [${2:Controller}::class, '${3:method}'])->name('${4:name}');"
+    ],
+    "description": "Laravel Route definition"
+  },
+  "Route POST": {
+    "prefix": "routepost",
+    "body": [
+      "Route::post('${1:uri}', [${2:Controller}::class, '${3:method}'])->name('${4:name}');"
+    ],
+    "description": "Laravel POST Route"
+  },
+  "Route Resource": {
+    "prefix": "routeres",
+    "body": ["Route::resource('${1:uri}', ${2:Controller}::class);"],
+    "description": "Laravel Resource Route"
+  },
+  "Controller": {
+    "prefix": "controller",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Http\\Controllers};",
+      "",
+      "use Illuminate\\Http\\Request;",
+      "",
+      "class ${2:ControllerName} extends Controller",
+      "{",
+      "    public function ${3:index}()",
+      "    {",
+      "        ${4://}",
+      "    }",
+      "}"
+    ],
+    "description": "Laravel Controller class"
+  },
+  "Model": {
+    "prefix": "model",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Models};",
+      "",
+      "use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;",
+      "use Illuminate\\Database\\Eloquent\\Model;",
+      "",
+      "class ${2:ModelName} extends Model",
+      "{",
+      "    use HasFactory;",
+      "",
+      "    protected \\$fillable = [",
+      "        ${3:'name'},",
+      "    ];",
+      "",
+      "    protected \\$casts = [",
+      "        ${4://}",
+      "    ];",
+      "}"
+    ],
+    "description": "Eloquent Model with HasFactory"
+  },
+  "Migration": {
+    "prefix": "migration",
+    "body": [
+      "<?php",
+      "",
+      "use Illuminate\\Database\\Migrations\\Migration;",
+      "use Illuminate\\Database\\Schema\\Blueprint;",
+      "use Illuminate\\Support\\Facades\\Schema;",
+      "",
+      "return new class extends Migration",
+      "{",
+      "    public function up(): void",
+      "    {",
+      "        Schema::create('${1:table_name}', function (Blueprint \\$table) {",
+      "            \\$table->id();",
+      "            ${2://}",
+      "            \\$table->timestamps();",
+      "        });",
+      "    }",
+      "",
+      "    public function down(): void",
+      "    {",
+      "        Schema::dropIfExists('${1:table_name}');",
+      "    }",
+      "};"
+    ],
+    "description": "Laravel Migration class"
+  },
+  "Factory": {
+    "prefix": "factory",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:Database\\Factories};",
+      "",
+      "use Illuminate\\Database\\Eloquent\\Factories\\Factory;",
+      "",
+      "class ${2:ModelName}Factory extends Factory",
+      "{",
+      "    public function definition(): array",
+      "    {",
+      "        return [",
+      "            ${3://}",
+      "        ];",
+      "    }",
+      "}"
+    ],
+    "description": "Model Factory"
+  },
+  "Test": {
+    "prefix": "test",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:Tests\\Feature};",
+      "",
+      "use Tests\\TestCase;",
+      "use Illuminate\\Foundation\\Testing\\RefreshDatabase;",
+      "",
+      "class ${2:TestName} extends TestCase",
+      "{",
+      "    use RefreshDatabase;",
+      "",
+      "    public function test_${3:example}(): void",
+      "    {",
+      "        ${4://}",
+      "        \\$this->assertTrue(true);",
+      "    }",
+      "}"
+    ],
+    "description": "PHPUnit Test class"
+  },
+  "Form Request": {
+    "prefix": "request",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Http\\Requests};",
+      "",
+      "use Illuminate\\Foundation\\Http\\FormRequest;",
+      "",
+      "class ${2:RequestName} extends FormRequest",
+      "{",
+      "    public function authorize(): bool",
+      "    {",
+      "        return ${3:true};",
+      "    }",
+      "",
+      "    public function rules(): array",
+      "    {",
+      "        return [",
+      "            ${4:'field' => 'required|string|max:255'},",
+      "        ];",
+      "    }",
+      "}"
+    ],
+    "description": "Form Request validation"
+  },
+  "hasMany Relationship": {
+    "prefix": "hasMany",
+    "body": [
+      "public function ${1:relation}()",
+      "{",
+      "    return \\$this->hasMany(${2:Model}::class);",
+      "}"
+    ],
+    "description": "hasMany relationship"
+  },
+  "belongsTo Relationship": {
+    "prefix": "belongsTo",
+    "body": [
+      "public function ${1:relation}()",
+      "{",
+      "    return \\$this->belongsTo(${2:Model}::class);",
+      "}"
+    ],
+    "description": "belongsTo relationship"
+  },
+  "belongsToMany Relationship": {
+    "prefix": "belongsToMany",
+    "body": [
+      "public function ${1:relation}()",
+      "{",
+      "    return \\$this->belongsToMany(${2:Model}::class);",
+      "}"
+    ],
+    "description": "belongsToMany relationship"
+  },
+  "hasOne Relationship": {
+    "prefix": "hasOne",
+    "body": [
+      "public function ${1:relation}()",
+      "{",
+      "    return \\$this->hasOne(${2:Model}::class);",
+      "}"
+    ],
+    "description": "hasOne relationship"
+  },
+  "Service Provider": {
+    "prefix": "provider",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Providers};",
+      "",
+      "use Illuminate\\Support\\ServiceProvider;",
+      "",
+      "class ${2:ProviderName} extends ServiceProvider",
+      "{",
+      "    public function register(): void",
+      "    {",
+      "        ${3://}",
+      "    }",
+      "",
+      "    public function boot(): void",
+      "    {",
+      "        ${4://}",
+      "    }",
+      "}"
+    ],
+    "description": "Service Provider"
+  },
+  "Job": {
+    "prefix": "job",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Jobs};",
+      "",
+      "use Illuminate\\Bus\\Queueable;",
+      "use Illuminate\\Contracts\\Queue\\ShouldQueue;",
+      "use Illuminate\\Foundation\\Bus\\Dispatchable;",
+      "use Illuminate\\Queue\\InteractsWithQueue;",
+      "use Illuminate\\Queue\\SerializesModels;",
+      "",
+      "class ${2:JobName} implements ShouldQueue",
+      "{",
+      "    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;",
+      "",
+      "    public function __construct()",
+      "    {",
+      "        ${3://}",
+      "    }",
+      "",
+      "    public function handle(): void",
+      "    {",
+      "        ${4://}",
+      "    }",
+      "}"
+    ],
+    "description": "Queued Job class"
+  },
+  "Event": {
+    "prefix": "event",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Events};",
+      "",
+      "use Illuminate\\Broadcasting\\InteractsWithSockets;",
+      "use Illuminate\\Foundation\\Events\\Dispatchable;",
+      "use Illuminate\\Queue\\SerializesModels;",
+      "",
+      "class ${2:EventName}",
+      "{",
+      "    use Dispatchable, InteractsWithSockets, SerializesModels;",
+      "",
+      "    public function __construct()",
+      "    {",
+      "        ${3://}",
+      "    }",
+      "}"
+    ],
+    "description": "Event class"
+  },
+  "Listener": {
+    "prefix": "listener",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Listeners};",
+      "",
+      "use ${2:App\\Events\\EventName};",
+      "use Illuminate\\Contracts\\Queue\\ShouldQueue;",
+      "use Illuminate\\Queue\\InteractsWithQueue;",
+      "",
+      "class ${3:ListenerName}",
+      "{",
+      "    public function __construct()",
+      "    {",
+      "        ${4://}",
+      "    }",
+      "",
+      "    public function handle(${2:EventName} \\$event): void",
+      "    {",
+      "        ${5://}",
+      "    }",
+      "}"
+    ],
+    "description": "Event Listener class"
+  },
+  "Middleware": {
+    "prefix": "middleware",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Http\\Middleware};",
+      "",
+      "use Closure;",
+      "use Illuminate\\Http\\Request;",
+      "",
+      "class ${2:MiddlewareName}",
+      "{",
+      "    public function handle(Request \\$request, Closure \\$next)",
+      "    {",
+      "        ${3://}",
+      "        ",
+      "        return \\$next(\\$request);",
+      "    }",
+      "}"
+    ],
+    "description": "Middleware class"
+  },
+  "Seeder": {
+    "prefix": "seeder",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:Database\\Seeders};",
+      "",
+      "use Illuminate\\Database\\Seeder;",
+      "",
+      "class ${2:SeederName} extends Seeder",
+      "{",
+      "    public function run(): void",
+      "    {",
+      "        ${3://}",
+      "    }",
+      "}"
+    ],
+    "description": "Database Seeder"
+  },
+  "Policy": {
+    "prefix": "policy",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1:App\\Policies};",
+      "",
+      "use ${2:App\\Models\\User};",
+      "use ${3:App\\Models\\Model};",
+      "",
+      "class ${4:PolicyName}",
+      "{",
+      "    public function view(${2:User} \\$user, ${3:Model} \\$model): bool",
+      "    {",
+      "        ${5:return true;}",
+      "    }",
+      "",
+      "    public function update(${2:User} \\$user, ${3:Model} \\$model): bool",
+      "    {",
+      "        ${6:return true;}",
+      "    }",
+      "",
+      "    public function delete(${2:User} \\$user, ${3:Model} \\$model): bool",
+      "    {",
+      "        ${7:return true;}",
+      "    }",
+      "}"
+    ],
+    "description": "Authorization Policy"
+  }
+}

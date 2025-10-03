@@ -1,0 +1,170 @@
+[
+  {
+    "label": "Artisan Serve",
+    "command": "php artisan serve",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Migrate",
+    "command": "php artisan migrate",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Migrate Fresh",
+    "command": "php artisan migrate:fresh --seed",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Migrate Rollback",
+    "command": "php artisan migrate:rollback",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Tinker",
+    "command": "php artisan tinker",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Route List",
+    "command": "php artisan route:list",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Queue Work",
+    "command": "php artisan queue:work",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Make Controller",
+    "command": "php artisan make:controller ${1:ControllerName}",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Make Model",
+    "command": "php artisan make:model ${1:ModelName} -mf",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Artisan Cache Clear",
+    "command": "php artisan cache:clear && php artisan config:clear && php artisan route:clear && php artisan view:clear",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Pint Format (All)",
+    "command": "./vendor/bin/pint",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Pint Format (Dirty)",
+    "command": "./vendor/bin/pint --dirty",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Pint Test",
+    "command": "./vendor/bin/pint --test",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "PHPUnit (All Tests)",
+    "command": "php artisan test",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "PHPUnit (Current File)",
+    "command": "php artisan test ${ZED_FILE}",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "PHPUnit (Parallel)",
+    "command": "php artisan test --parallel",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "PHPUnit (Coverage)",
+    "command": "php artisan test --coverage",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Pest (All Tests)",
+    "command": "./vendor/bin/pest",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "NPM Dev",
+    "command": "npm run dev",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "NPM Build",
+    "command": "npm run build",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "NPM Install",
+    "command": "npm install",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Composer Install",
+    "command": "composer install",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Composer Update",
+    "command": "composer update",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Composer Dump Autoload",
+    "command": "composer dump-autoload",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]

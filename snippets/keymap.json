@@ -1,0 +1,71 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-p": "command_palette::Toggle",
+      "ctrl-shift-p": "command_palette::Toggle",
+      "cmd-b": "workspace::ToggleLeftDock",
+      "ctrl-b": "workspace::ToggleLeftDock",
+      "cmd-shift-e": "project_panel::ToggleFocus",
+      "ctrl-shift-e": "project_panel::ToggleFocus",
+      "cmd-t": "terminal_panel::ToggleFocus",
+      "ctrl-t": "terminal_panel::ToggleFocus",
+      "cmd-shift-t": "task::Spawn",
+      "ctrl-shift-t": "task::Spawn",
+      "cmd-k cmd-s": "workspace::SaveAll",
+      "ctrl-k ctrl-s": "workspace::SaveAll"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-i": "editor::Format",
+      "ctrl-shift-i": "editor::Format",
+      "cmd-d": "editor::SelectNext",
+      "ctrl-d": "editor::SelectNext",
+      "cmd-shift-l": "editor::SelectAllMatches",
+      "ctrl-shift-l": "editor::SelectAllMatches",
+      "cmd-/": "editor::ToggleComments",
+      "ctrl-/": "editor::ToggleComments",
+      "cmd-shift-d": "editor::DuplicateLine",
+      "ctrl-shift-d": "editor::DuplicateLine",
+      "cmd-shift-k": "editor::DeleteLine",
+      "ctrl-shift-k": "editor::DeleteLine",
+      "alt-up": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown",
+      "cmd-shift-f": "workspace::NewSearch",
+      "ctrl-shift-f": "workspace::NewSearch",
+      "cmd-p": "file_finder::Toggle",
+      "ctrl-p": "file_finder::Toggle",
+      "cmd-shift-o": "outline::Toggle",
+      "ctrl-shift-o": "outline::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-t": "terminal_panel::ToggleFocus",
+      "ctrl-t": "terminal_panel::ToggleFocus",
+      "cmd-w": "pane::CloseActiveItem",
+      "ctrl-w": "pane::CloseActiveItem",
+      "cmd-k": "terminal::Clear",
+      "ctrl-k": "terminal::Clear"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "delete": "project_panel::Delete",
+      "backspace": "project_panel::Delete",
+      "cmd-c": "project_panel::Copy",
+      "ctrl-c": "project_panel::Copy",
+      "cmd-x": "project_panel::Cut",
+      "ctrl-x": "project_panel::Cut",
+      "cmd-v": "project_panel::Paste",
+      "ctrl-v": "project_panel::Paste"
+    }
+  }
+]
