@@ -59,23 +59,31 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ProjectDir = Split-Path -Parent $ScriptDir
 
 Write-Host ""
+Write-Host "🎨 Choose your theme configuration:" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "1) Default (One Dark theme, standard colors)" -ForegroundColor White
+Write-Host "2) Dracula Pro (Custom Dracula with enhanced PHP/Laravel syntax colors)" -ForegroundColor Magenta
+Write-Host ""
+$ThemeChoice = Read-Host "Enter your choice (1 or 2)"
+
+switch ($ThemeChoice) {
+    "2" {
+        $SettingsFile = Join-Path $ProjectDir "settings-dracula.json"
+        Write-Host "✅ Selected: Dracula Pro theme" -ForegroundColor Green
+    }
+    default {
+        $SettingsFile = Join-Path $ProjectDir "settings.json"
+        Write-Host "✅ Selected: Default theme (One Dark)" -ForegroundColor Green
+    }
+}
+
+Write-Host ""
 Write-Host "📋 Installing configuration files..." -ForegroundColor Cyan
 
 # Copy main config files
-$FilesToCopy = @(
-    @{Source = "settings.json"; Dest = "settings.json"},
-    @{Source = "keymap.json"; Dest = "keymap.json"},
-    @{Source = "tasks.json"; Dest = "tasks.json"}
-)
-
-foreach ($File in $FilesToCopy) {
-    $SourcePath = Join-Path $ProjectDir $File.Source
-    $DestPath = Join-Path $ConfigDir $File.Dest
-
-    if (Test-Path $SourcePath) {
-        Copy-Item $SourcePath -Destination $DestPath -Force
-        Write-Host "✅ Installed: $($File.Dest)" -ForegroundColor Green
-    }
+if (Test-Path $SettingsFile) {
+    Copy-Item $SettingsFile -Destination (Join-Path $ConfigDir "settings.json") -Force
+    Write-Host "✅ Installed: settings.json" -ForegroundColor Green
 }
 
 # Copy snippets
@@ -100,14 +108,20 @@ Write-Host "✅ Installation complete!" -ForegroundColor Green
 Write-Host ""
 Write-Host "📚 Next steps:" -ForegroundColor Cyan
 Write-Host "   1. Restart Zed Editor"
-Write-Host "   2. Open a Laravel project"
-Write-Host "   3. Start using snippets with Tab completion"
-Write-Host "   4. Run tasks with Ctrl+Shift+T"
+Write-Host "   2. Extensions will auto-install on first launch:"
+Write-Host "      - PHP"
+Write-Host "      - Laravel Blade"
+Write-Host "      - Env"
+Write-Host "      - Tailwind CSS"
+Write-Host "   3. Open a Laravel project"
+Write-Host "   4. Start using snippets with Tab completion"
+Write-Host "   5. Run tasks with Ctrl+Shift+T"
 Write-Host ""
 Write-Host "💡 Tips:" -ForegroundColor Yellow
 Write-Host "   - Type 'route' and press Tab for a route snippet"
 Write-Host "   - Type '@if' and press Tab for a Blade if statement"
 Write-Host "   - Type 'livewire-component' for a full Livewire component"
+Write-Host "   - Press Ctrl+Shift+X to manage extensions"
 Write-Host ""
 Write-Host "📖 Documentation: https://github.com/croustibat/zed-for-laravel" -ForegroundColor Cyan
 Write-Host ""

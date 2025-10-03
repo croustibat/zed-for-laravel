@@ -74,11 +74,30 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 
 echo ""
+echo "🎨 Choose your theme configuration:"
+echo ""
+echo "1) Default (One Dark theme, standard colors)"
+echo "2) Dracula Pro (Custom Dracula with enhanced PHP/Laravel syntax colors)"
+echo ""
+read -p "Enter your choice (1 or 2): " theme_choice
+
+case $theme_choice in
+    2)
+        SETTINGS_FILE="$PROJECT_DIR/settings-dracula.json"
+        echo "✅ Selected: Dracula Pro theme"
+        ;;
+    *)
+        SETTINGS_FILE="$PROJECT_DIR/settings.json"
+        echo "✅ Selected: Default theme (One Dark)"
+        ;;
+esac
+
+echo ""
 echo "📋 Installing configuration files..."
 
 # Copy main config files
-if [ -f "$PROJECT_DIR/settings.json" ]; then
-    cp "$PROJECT_DIR/settings.json" "$CONFIG_DIR/"
+if [ -f "$SETTINGS_FILE" ]; then
+    cp "$SETTINGS_FILE" "$CONFIG_DIR/settings.json"
     echo "✅ Installed: settings.json"
 fi
 

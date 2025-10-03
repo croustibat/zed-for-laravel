@@ -6,6 +6,28 @@
 
 A complete configuration kit for [Zed Editor](https://zed.dev) optimized for Laravel development. Get started with Laravel in Zed in seconds with pre-configured settings, snippets, tasks, and keyboard shortcuts.
 
+## 🎨 Theme Options
+
+Choose between two pre-configured themes during installation:
+
+### 1. Default Theme (One Dark)
+- Clean and modern One Dark color scheme
+- Standard syntax highlighting
+- Perfect for getting started quickly
+
+### 2. Dracula Blurred Theme  ⭐
+- Custom Dracula theme with enhanced colors
+- Optimized syntax highlighting for PHP and Laravel
+- Carefully tuned colors for:
+  - PHP functions and methods (`#50fa7b` green)
+  - Keywords and operators (`#ff79c6` pink, bold)
+  - Types and classes (`#8be9fd` cyan, italic)
+  - Strings (`#f1fa8c` yellow)
+  - Comments (`#6272a4` blue-gray, italic)
+- Enhanced readability for long coding sessions
+
+The installation script will prompt you to choose your preferred theme.
+
 ## ✨ Features
 
 - 🎨 **Laravel Pint Integration** - Automatic code formatting on save
@@ -186,6 +208,7 @@ You can also manually format using:
 - [Features Overview](docs/features.md)
 - [Configuration Guide](docs/configuration.md)
 - [Extensions Guide](docs/extensions.md)
+- [Theme Guide](docs/themes.md)
 
 ## 🤝 Contributing
 

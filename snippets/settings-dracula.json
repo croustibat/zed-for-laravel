@@ -8,11 +8,125 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "Dracula"
   },
+  "ui_font_size": 16,
   "buffer_font_family": "JetBrains Mono",
   "buffer_font_size": 14,
-  "ui_font_size": 16,
+  "buffer_line_height": {
+    "custom": 1.5
+  },
+  "syntax_overrides": {
+    "comment": {
+      "color": "#6272a4",
+      "font_style": "italic"
+    },
+    "comment.doc": {
+      "color": "#6272a4",
+      "font_style": "italic"
+    },
+    "string": {
+      "color": "#f1fa8c"
+    },
+    "string.special": {
+      "color": "#50fa7b"
+    },
+    "number": {
+      "color": "#bd93f9"
+    },
+    "boolean": {
+      "color": "#bd93f9"
+    },
+    "type": {
+      "color": "#8be9fd",
+      "font_style": "italic"
+    },
+    "variable": {
+      "color": "#f8f8f2"
+    },
+    "variable.special": {
+      "color": "#ffb86c"
+    },
+    "function": {
+      "color": "#50fa7b"
+    },
+    "function.method": {
+      "color": "#50fa7b"
+    },
+    "keyword": {
+      "color": "#ff79c6",
+      "font_weight": 700
+    },
+    "operator": {
+      "color": "#ff79c6"
+    },
+    "constant": {
+      "color": "#bd93f9"
+    },
+    "tag": {
+      "color": "#ff79c6"
+    },
+    "attribute": {
+      "color": "#50fa7b"
+    },
+    "property": {
+      "color": "#8be9fd"
+    },
+    "constructor": {
+      "color": "#8be9fd"
+    },
+    "embedded": {
+      "color": "#f8f8f2"
+    },
+    "punctuation": {
+      "color": "#f8f8f2"
+    },
+    "punctuation.bracket": {
+      "color": "#f8f8f2"
+    },
+    "punctuation.delimiter": {
+      "color": "#f8f8f2"
+    },
+    "punctuation.special": {
+      "color": "#ff79c6"
+    },
+    "text.literal": {
+      "color": "#f1fa8c"
+    },
+    "label": {
+      "color": "#8be9fd"
+    },
+    "link_text": {
+      "color": "#8be9fd",
+      "font_style": "underline"
+    },
+    "link_uri": {
+      "color": "#50fa7b"
+    },
+    "title": {
+      "color": "#bd93f9",
+      "font_weight": 700
+    },
+    "emphasis": {
+      "color": "#f1fa8c",
+      "font_style": "italic"
+    },
+    "emphasis.strong": {
+      "color": "#ffb86c",
+      "font_weight": 700
+    },
+    "hint": {
+      "color": "#6272a4",
+      "font_weight": 700
+    },
+    "predictive": {
+      "color": "#6272a4",
+      "font_style": "italic"
+    },
+    "primary": {
+      "color": "#f8f8f2"
+    }
+  },
   "tab_size": 4,
   "hard_tabs": false,
   "soft_wrap": "editor_width",
