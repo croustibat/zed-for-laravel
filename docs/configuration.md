@@ -16,6 +16,73 @@ All configuration files are located in your Zed config directory:
 - **`tasks.json`** - Artisan and build tasks
 - **`snippets/`** - Code snippets directory
 
+## Managing Extensions
+
+### Auto-Installed Extensions
+
+By default, these extensions are automatically installed via the `auto_install_extensions` setting in `settings.json`:
+
+```json
+{
+  "auto_install_extensions": {
+    "php": true,
+    "blade": true,
+    "env": true,
+    "tailwindcss": true
+  }
+}
+```
+
+### Adding More Extensions
+
+To add more extensions to auto-install, edit `settings.json`:
+
+```json
+{
+  "auto_install_extensions": {
+    "php": true,
+    "blade": true,
+    "env": true,
+    "tailwindcss": true,
+    "vue": true,          // Add Vue support
+    "alpine": true,       // Add Alpine.js support
+    "markdown": true      // Add Markdown support
+  }
+}
+```
+
+**Popular Laravel-related extensions:**
+- `vue` - Vue.js (for Inertia projects)
+- `alpine` - Alpine.js
+- `markdown` - Markdown files
+- `toml` - TOML configuration files
+- `docker` - Docker files
+- `sql` - SQL syntax
+
+### Disabling Auto-Install
+
+To prevent an extension from auto-installing:
+
+```json
+{
+  "auto_install_extensions": {
+    "php": true,
+    "blade": true,
+    "env": true,
+    "tailwindcss": false  // Won't install
+  }
+}
+```
+
+Or remove it entirely from the list.
+
+### Manual Extension Management
+
+To manage extensions manually:
+1. Press `Cmd/Ctrl + Shift + X`
+2. Search for extensions
+3. Click "Install" or "Uninstall"
+
 ## Customizing Settings
 
 ### Theme and Appearance
