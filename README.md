@@ -1,8 +1,9 @@
 # 🚀 Zed for Laravel Starter Kit
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?logo=laravel)](https://laravel.com)
-[![Zed](https://img.shields.io/badge/Zed-Editor-blue)](https://zed.dev)
+[![GitHub stars](https://img.shields.io/github/stars/croustibat/zed-for-laravel?style=social)](https://github.com/croustibat/zed-for-laravel/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/croustibat/zed-for-laravel?style=social)](https://github.com/croustibat/zed-for-laravel/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/croustibat/zed-for-laravel)](https://github.com/croustibat/zed-for-laravel/issues)
 
 A complete configuration kit for [Zed Editor](https://zed.dev) optimized for Laravel development. Get started with Laravel in Zed in seconds with pre-configured settings, snippets, tasks, and keyboard shortcuts.
 
