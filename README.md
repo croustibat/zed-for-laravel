@@ -30,12 +30,12 @@ A complete configuration kit for [Zed Editor](https://zed.dev) optimized for Lar
 
 #### macOS / Linux
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/zed-for-laravel/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/croustibat/zed-for-laravel/main/scripts/install.sh | bash
 ```
 
 Or download and run:
 ```bash
-git clone https://github.com/YOUR_USERNAME/zed-for-laravel.git
+git clone https://github.com/croustibat/zed-for-laravel.git
 cd zed-for-laravel
 chmod +x scripts/install.sh
 ./scripts/install.sh
@@ -43,12 +43,12 @@ chmod +x scripts/install.sh
 
 #### Windows (PowerShell)
 ```powershell
-irm https://raw.githubusercontent.com/YOUR_USERNAME/zed-for-laravel/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/croustibat/zed-for-laravel/main/scripts/install.ps1 | iex
 ```
 
 Or download and run:
 ```powershell
-git clone https://github.com/YOUR_USERNAME/zed-for-laravel.git
+git clone https://github.com/croustibat/zed-for-laravel.git
 cd zed-for-laravel
 .\scripts\install.ps1
 ```
@@ -195,7 +195,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you find this project helpful, please consider:
 - Starring the repository ⭐
 - Sharing it with other Laravel developers
-- [Sponsoring the project](https://github.com/sponsors/YOUR_USERNAME)
+- [Sponsoring the project](https://github.com/sponsors/croustibat)
 
 ---
 

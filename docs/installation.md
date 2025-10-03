@@ -19,7 +19,7 @@ Before installing, ensure you have:
 The fastest way to install is using the automated installation script:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/zed-for-laravel/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/croustibat/zed-for-laravel/main/scripts/install.sh | bash
 ```
 
 This will:
@@ -34,7 +34,7 @@ This will:
 Use PowerShell to run the installation script:
 
 ```powershell
-irm https://raw.githubusercontent.com/YOUR_USERNAME/zed-for-laravel/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/croustibat/zed-for-laravel/main/scripts/install.ps1 | iex
 ```
 
 ## Manual Installation
@@ -44,7 +44,7 @@ If you prefer to install manually or want more control over the process:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/zed-for-laravel.git
+git clone https://github.com/croustibat/zed-for-laravel.git
 cd zed-for-laravel
 ```
 
