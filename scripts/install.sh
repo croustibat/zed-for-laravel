@@ -5,6 +5,9 @@
 
 set -e
 
+# GitHub raw content base URL
+GITHUB_RAW_BASE="https://raw.githubusercontent.com/croustibat/zed-for-laravel/main"
+
 echo "🚀 Zed for Laravel - Installation Script"
 echo "=========================================="
 echo ""
@@ -35,6 +38,18 @@ fi
 echo "📁 Config directory: ${CONFIG_DIR}"
 echo ""
 
+# Detect if running remotely (via curl | bash) or locally
+REMOTE_INSTALL=false
+if [ -z "${BASH_SOURCE[0]}" ] || [ "${BASH_SOURCE[0]}" = "bash" ] || [ ! -f "${BASH_SOURCE[0]}" ]; then
+    REMOTE_INSTALL=true
+    echo "📡 Remote installation detected (downloading from GitHub)"
+else
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+    echo "📂 Local installation detected"
+fi
+echo ""
+
 # Check if Zed config directory exists
 if [ ! -d "$CONFIG_DIR" ]; then
     echo "📂 Creating Zed config directory..."
@@ -43,6 +58,11 @@ if [ ! -d "$CONFIG_DIR" ]; then
     echo "✅ Created directories"
 else
     echo "✅ Zed config directory exists"
+fi
+
+# Create snippets directory if it doesn't exist
+if [ ! -d "$CONFIG_DIR/snippets" ]; then
+    mkdir -p "$CONFIG_DIR/snippets"
 fi
 
 # Backup existing configs
@@ -69,10 +89,6 @@ else
     echo "ℹ️  No existing configuration to backup"
 fi
 
-# Get script directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-
 echo ""
 echo "🎨 Choose your theme configuration:"
 echo ""
@@ -83,11 +99,11 @@ read -p "Enter your choice (1 or 2): " theme_choice
 
 case $theme_choice in
     2)
-        SETTINGS_FILE="$PROJECT_DIR/settings-dracula.json"
+        SETTINGS_SOURCE="snippets/settings-dracula.json"
         echo "✅ Selected: Dracula Pro theme"
         ;;
     *)
-        SETTINGS_FILE="$PROJECT_DIR/settings.json"
+        SETTINGS_SOURCE="snippets/settings.json"
         echo "✅ Selected: Default theme (One Dark)"
         ;;
 esac
@@ -95,31 +111,50 @@ esac
 echo ""
 echo "📋 Installing configuration files..."
 
-# Copy main config files
-if [ -f "$SETTINGS_FILE" ]; then
-    cp "$SETTINGS_FILE" "$CONFIG_DIR/settings.json"
-    echo "✅ Installed: settings.json"
-fi
+# Function to download or copy a file
+install_file() {
+    local source=$1
+    local dest=$2
+    local filename=$3
+    
+    if [ "$REMOTE_INSTALL" = true ]; then
+        if curl -fsSL "$GITHUB_RAW_BASE/$source" -o "$dest" 2>/dev/null; then
+            echo "✅ Installed: $filename"
+            return 0
+        else
+            echo "⚠️  Could not download: $filename"
+            return 1
+        fi
+    else
+        if [ -f "$PROJECT_DIR/$source" ]; then
+            cp "$PROJECT_DIR/$source" "$dest"
+            echo "✅ Installed: $filename"
+            return 0
+        else
+            echo "⚠️  File not found: $source"
+            return 1
+        fi
+    fi
+}
 
-if [ -f "$PROJECT_DIR/keymap.json" ]; then
-    cp "$PROJECT_DIR/keymap.json" "$CONFIG_DIR/"
-    echo "✅ Installed: keymap.json"
-fi
+# Install settings.json
+install_file "$SETTINGS_SOURCE" "$CONFIG_DIR/settings.json" "settings.json"
 
-if [ -f "$PROJECT_DIR/tasks.json" ]; then
-    cp "$PROJECT_DIR/tasks.json" "$CONFIG_DIR/"
-    echo "✅ Installed: tasks.json"
-fi
+# Install keymap.json
+install_file "snippets/keymap.json" "$CONFIG_DIR/keymap.json" "keymap.json"
 
-# Copy snippets
+# Install tasks.json
+install_file "snippets/tasks.json" "$CONFIG_DIR/tasks.json" "tasks.json"
+
+# Install snippets
 echo ""
 echo "📝 Installing snippets..."
-if [ -d "$PROJECT_DIR/snippets" ]; then
-    cp -r "$PROJECT_DIR/snippets/"* "$CONFIG_DIR/snippets/" 2>/dev/null || true
-    echo "✅ Installed PHP snippets"
-    echo "✅ Installed Blade snippets"
-    echo "✅ Installed Livewire snippets"
-fi
+
+SNIPPET_FILES=("php.json" "blade.json" "livewire.json")
+
+for snippet in "${SNIPPET_FILES[@]}"; do
+    install_file "snippets/$snippet" "$CONFIG_DIR/snippets/$snippet" "$snippet"
+done
 
 echo ""
 echo "=========================================="
