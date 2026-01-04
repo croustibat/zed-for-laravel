@@ -1,0 +1,278 @@
+{
+  "Pest Test": {
+    "prefix": "pest-test",
+    "body": [
+      "test('${1:it does something}', function () {",
+      "    ${2:// Arrange}",
+      "",
+      "    ${3:// Act}",
+      "",
+      "    ${4:// Assert}",
+      "    expect(true)->toBeTrue();",
+      "});"
+    ],
+    "description": "Pest test function"
+  },
+  "Pest It": {
+    "prefix": "pest-it",
+    "body": [
+      "it('${1:does something}', function () {",
+      "    ${2:expect(true)->toBeTrue();}",
+      "});"
+    ],
+    "description": "Pest it function"
+  },
+  "Pest Describe": {
+    "prefix": "pest-describe",
+    "body": [
+      "describe('${1:feature}', function () {",
+      "    it('${2:does something}', function () {",
+      "        ${3:expect(true)->toBeTrue();}",
+      "    });",
+      "});"
+    ],
+    "description": "Pest describe block"
+  },
+  "Pest BeforeEach": {
+    "prefix": "pest-before",
+    "body": [
+      "beforeEach(function () {",
+      "    ${1:// setup}",
+      "});"
+    ],
+    "description": "Pest beforeEach hook"
+  },
+  "Pest AfterEach": {
+    "prefix": "pest-after",
+    "body": [
+      "afterEach(function () {",
+      "    ${1:// teardown}",
+      "});"
+    ],
+    "description": "Pest afterEach hook"
+  },
+  "Pest Expect": {
+    "prefix": "expect",
+    "body": ["expect(${1:\\$value})->${2:toBe}(${3:expected});"],
+    "description": "Pest expect assertion"
+  },
+  "Pest Expect ToBeTrue": {
+    "prefix": "expect-true",
+    "body": ["expect(${1:\\$value})->toBeTrue();"],
+    "description": "Expect to be true"
+  },
+  "Pest Expect ToBeFalse": {
+    "prefix": "expect-false",
+    "body": ["expect(${1:\\$value})->toBeFalse();"],
+    "description": "Expect to be false"
+  },
+  "Pest Expect ToBeNull": {
+    "prefix": "expect-null",
+    "body": ["expect(${1:\\$value})->toBeNull();"],
+    "description": "Expect to be null"
+  },
+  "Pest Expect ToBeEmpty": {
+    "prefix": "expect-empty",
+    "body": ["expect(${1:\\$value})->toBeEmpty();"],
+    "description": "Expect to be empty"
+  },
+  "Pest Expect ToHaveCount": {
+    "prefix": "expect-count",
+    "body": ["expect(${1:\\$value})->toHaveCount(${2:count});"],
+    "description": "Expect to have count"
+  },
+  "Pest Expect ToContain": {
+    "prefix": "expect-contain",
+    "body": ["expect(${1:\\$value})->toContain(${2:item});"],
+    "description": "Expect to contain"
+  },
+  "Pest Expect ToMatchArray": {
+    "prefix": "expect-match",
+    "body": ["expect(${1:\\$value})->toMatchArray(${2:[\\n    'key' => 'value',\\n]});"],
+    "description": "Expect to match array"
+  },
+  "Pest Expect ToThrow": {
+    "prefix": "expect-throw",
+    "body": ["expect(fn () => ${1:throwingCode()})->toThrow(${2:Exception::class});"],
+    "description": "Expect to throw exception"
+  },
+  "Pest Feature Test": {
+    "prefix": "pest-feature",
+    "body": [
+      "<?php",
+      "",
+      "use App\\Models\\User;",
+      "",
+      "test('${1:user can view page}', function () {",
+      "    \\$user = User::factory()->create();",
+      "",
+      "    \\$response = \\$this->actingAs(\\$user)->get('${2:/}');",
+      "",
+      "    \\$response->assertStatus(200);",
+      "});"
+    ],
+    "description": "Pest feature test file"
+  },
+  "Pest Unit Test": {
+    "prefix": "pest-unit",
+    "body": [
+      "<?php",
+      "",
+      "test('${1:it works}', function () {",
+      "    ${2:expect(true)->toBeTrue();}",
+      "});"
+    ],
+    "description": "Pest unit test file"
+  },
+  "Pest With Dataset": {
+    "prefix": "pest-dataset",
+    "body": [
+      "test('${1:test with data}', function (${2:\\$input}, ${3:\\$expected}) {",
+      "    expect(${4:result})->toBe(${3:\\$expected});",
+      "})->with([",
+      "    [${5:'input1'}, ${6:'expected1'}],",
+      "    [${7:'input2'}, ${8:'expected2'}],",
+      "]);"
+    ],
+    "description": "Test with inline dataset"
+  },
+  "Pest Dataset": {
+    "prefix": "pest-dataset-file",
+    "body": [
+      "dataset('${1:name}', [",
+      "    [${2:'value1'}],",
+      "    [${3:'value2'}],",
+      "]);"
+    ],
+    "description": "Pest dataset definition"
+  },
+  "Pest Skip": {
+    "prefix": "pest-skip",
+    "body": ["->skip(${1:'reason'})"],
+    "description": "Skip test"
+  },
+  "Pest Todo": {
+    "prefix": "pest-todo",
+    "body": ["->todo()"],
+    "description": "Mark test as todo"
+  },
+  "Pest Only": {
+    "prefix": "pest-only",
+    "body": ["->only()"],
+    "description": "Run only this test"
+  },
+  "Pest Group": {
+    "prefix": "pest-group",
+    "body": ["->group('${1:group-name}')"],
+    "description": "Add test to group"
+  },
+  "Pest Throws": {
+    "prefix": "pest-throws",
+    "body": ["->throws(${1:Exception::class}${2:, '${3:message}'})"],
+    "description": "Expect test to throw"
+  },
+  "Pest ActingAs": {
+    "prefix": "pest-acting",
+    "body": ["\\$this->actingAs(${1:\\$user})"],
+    "description": "Act as user"
+  },
+  "Pest Get Request": {
+    "prefix": "pest-get",
+    "body": ["\\$response = \\$this->get('${1:/}');"],
+    "description": "HTTP GET request"
+  },
+  "Pest Post Request": {
+    "prefix": "pest-post",
+    "body": ["\\$response = \\$this->post('${1:/}', [${2:}]);"],
+    "description": "HTTP POST request"
+  },
+  "Pest Assert Status": {
+    "prefix": "pest-status",
+    "body": ["\\$response->assertStatus(${1:200});"],
+    "description": "Assert HTTP status"
+  },
+  "Pest Assert Redirect": {
+    "prefix": "pest-redirect",
+    "body": ["\\$response->assertRedirect('${1:/}');"],
+    "description": "Assert redirect"
+  },
+  "Pest Assert See": {
+    "prefix": "pest-see",
+    "body": ["\\$response->assertSee('${1:text}');"],
+    "description": "Assert see text"
+  },
+  "Pest Assert Json": {
+    "prefix": "pest-json",
+    "body": [
+      "\\$response->assertJson([",
+      "    '${1:key}' => ${2:'value'},",
+      "]);"
+    ],
+    "description": "Assert JSON response"
+  },
+  "Pest Assert Database Has": {
+    "prefix": "pest-db-has",
+    "body": [
+      "\\$this->assertDatabaseHas('${1:table}', [",
+      "    '${2:column}' => ${3:'value'},",
+      "]);"
+    ],
+    "description": "Assert database has record"
+  },
+  "Pest Assert Database Missing": {
+    "prefix": "pest-db-missing",
+    "body": [
+      "\\$this->assertDatabaseMissing('${1:table}', [",
+      "    '${2:column}' => ${3:'value'},",
+      "]);"
+    ],
+    "description": "Assert database missing record"
+  },
+  "Pest Mock": {
+    "prefix": "pest-mock",
+    "body": [
+      "\\$mock = \\$this->mock(${1:ClassName}::class, function (\\$mock) {",
+      "    \\$mock->shouldReceive('${2:method}')->andReturn(${3:'value'});",
+      "});"
+    ],
+    "description": "Mock a class"
+  },
+  "Pest Fake": {
+    "prefix": "pest-fake",
+    "body": ["${1:Event}::fake();"],
+    "description": "Fake facade"
+  },
+  "Pest Uses RefreshDatabase": {
+    "prefix": "pest-uses-db",
+    "body": ["uses(Illuminate\\Foundation\\Testing\\RefreshDatabase::class);"],
+    "description": "Use RefreshDatabase trait"
+  },
+  "Pest Uses": {
+    "prefix": "pest-uses",
+    "body": ["uses(${1:Tests\\TestCase}::class)->in('${2:Feature}');"],
+    "description": "Pest uses statement"
+  },
+  "Pest Covers": {
+    "prefix": "pest-covers",
+    "body": ["covers(${1:App\\Models\\User}::class);"],
+    "description": "Specify coverage"
+  },
+  "Pest Arch Test": {
+    "prefix": "pest-arch",
+    "body": [
+      "arch('${1:controllers}')",
+      "    ->expect('App\\\\Http\\\\Controllers')",
+      "    ->${2:toExtend}(${3:'App\\\\Http\\\\Controllers\\\\Controller'});"
+    ],
+    "description": "Architecture test"
+  },
+  "Pest Arch Globals": {
+    "prefix": "pest-arch-globals",
+    "body": [
+      "arch('globals')",
+      "    ->expect(['dd', 'dump', 'ray'])",
+      "    ->not->toBeUsed();"
+    ],
+    "description": "No debug globals test"
+  }
+}

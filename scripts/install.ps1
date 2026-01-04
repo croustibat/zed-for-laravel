@@ -122,7 +122,7 @@ Install-ConfigFile -Source "snippets/tasks.json" -Destination (Join-Path $Config
 Write-Host ""
 Write-Host "📝 Installing snippets..." -ForegroundColor Cyan
 
-$SnippetFiles = @("php.json", "blade.json", "livewire.json")
+$SnippetFiles = @("php.json", "blade.json", "livewire.json", "pest.json", "filament.json", "inertia.json", "volt.json")
 
 foreach ($Snippet in $SnippetFiles) {
     Install-ConfigFile -Source "snippets/$Snippet" -Destination (Join-Path "$ConfigDir\snippets" $Snippet) -FileName $Snippet

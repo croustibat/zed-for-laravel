@@ -31,7 +31,7 @@ The installation script will prompt you to choose your preferred theme.
 ## ✨ Features
 
 - 🎨 **Laravel Pint Integration** - Automatic code formatting on save
-- 📝 **130+ Snippets** - PHP, Blade, and Livewire 3 snippets
+- 📝 **200+ Snippets** - PHP, Blade, Livewire, Pest, Filament, Inertia.js & Volt
 - ⚡ **Artisan Tasks** - Pre-configured tasks for common Artisan commands
 - ⌨️ **Keyboard Shortcuts** - Laravel-friendly keybindings
 - 🔧 **LSP Configuration** - PHP language server optimized for Laravel
@@ -159,6 +159,55 @@ All snippets support **Tab completion**. Type the prefix and press `Tab` to expa
 - `livewire-on` → Event listener with attribute
 - `wire:model` → Wire model directive
 - `wire:click` → Wire click directive
+
+#### Pest Snippets (Testing)
+- `pest-test` → Pest test function
+- `pest-it` → Pest it function
+- `pest-describe` → Describe block
+- `pest-before` → beforeEach hook
+- `expect` → Expect assertion
+- `pest-feature` → Feature test file
+- `pest-dataset` → Test with dataset
+- `pest-mock` → Mock a class
+- `pest-arch` → Architecture test
+
+#### Filament Snippets (Admin Panel)
+- `fil-resource` → Filament Resource class
+- `fil-text` → TextInput field
+- `fil-select` → Select field
+- `fil-select-rel` → Select with relationship
+- `fil-toggle` → Toggle field
+- `fil-file` → File upload
+- `fil-section` → Form section
+- `fil-repeater` → Repeater field
+- `fil-col-text` → Text column
+- `fil-col-badge` → Badge column
+- `fil-action` → Table action
+- `fil-widget-stats` → Stats widget
+- `fil-notify` → Notification
+
+#### Inertia.js Snippets
+- `inertia` → Inertia render
+- `inertia-render` → Render with props
+- `inertia-controller` → Full CRUD controller
+- `inertia-vue-page` → Vue 3 page component
+- `inertia-vue-form` → Vue form with useForm
+- `inertia-useform` → useForm composable
+- `inertia-link` → Inertia Link component
+- `inertia-react-page` → React page component
+- `inertia-react-form` → React form component
+
+#### Livewire Volt Snippets
+- `volt` → Volt single-file component
+- `volt-class` → Class-based Volt component
+- `volt-state` → State declaration
+- `volt-computed` → Computed property
+- `volt-action` → Action function
+- `volt-mount` → Mount hook
+- `volt-rules` → Validation rules
+- `volt-form` → Form with validation
+- `volt-page` → Full page component
+- `volt-pagination` → Component with pagination
 
 ### Tasks (Cmd/Ctrl + Shift + T)
 

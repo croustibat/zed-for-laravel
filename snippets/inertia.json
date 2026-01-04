@@ -1,0 +1,312 @@
+{
+  "Inertia Render": {
+    "prefix": "inertia-render",
+    "body": ["return Inertia::render('${1:PageName}', [", "    '${2:prop}' => ${3:\\$value},", "]);"],
+    "description": "Inertia render response"
+  },
+  "Inertia Render Simple": {
+    "prefix": "inertia",
+    "body": ["return Inertia::render('${1:PageName}');"],
+    "description": "Inertia render simple"
+  },
+  "Inertia Redirect": {
+    "prefix": "inertia-redirect",
+    "body": ["return redirect()->route('${1:route.name}');"],
+    "description": "Inertia redirect"
+  },
+  "Inertia Redirect Back": {
+    "prefix": "inertia-back",
+    "body": ["return back();"],
+    "description": "Inertia redirect back"
+  },
+  "Inertia Controller": {
+    "prefix": "inertia-controller",
+    "body": [
+      "<?php",
+      "",
+      "namespace App\\Http\\Controllers;",
+      "",
+      "use Illuminate\\Http\\Request;",
+      "use Inertia\\Inertia;",
+      "use Inertia\\Response;",
+      "",
+      "class ${1:ControllerName} extends Controller",
+      "{",
+      "    public function index(): Response",
+      "    {",
+      "        return Inertia::render('${2:Page/Index}', [",
+      "            ${3://}",
+      "        ]);",
+      "    }",
+      "",
+      "    public function create(): Response",
+      "    {",
+      "        return Inertia::render('${2:Page}/Create');",
+      "    }",
+      "",
+      "    public function store(Request \\$request)",
+      "    {",
+      "        ${4:// store logic}",
+      "",
+      "        return redirect()->route('${5:route.index}');",
+      "    }",
+      "",
+      "    public function edit(${6:\\$model}): Response",
+      "    {",
+      "        return Inertia::render('${2:Page}/Edit', [",
+      "            '${7:model}' => ${6:\\$model},",
+      "        ]);",
+      "    }",
+      "",
+      "    public function update(Request \\$request, ${6:\\$model})",
+      "    {",
+      "        ${8:// update logic}",
+      "",
+      "        return redirect()->route('${5:route.index}');",
+      "    }",
+      "",
+      "    public function destroy(${6:\\$model})",
+      "    {",
+      "        ${6:\\$model}->delete();",
+      "",
+      "        return redirect()->route('${5:route.index}');",
+      "    }",
+      "}"
+    ],
+    "description": "Inertia controller with CRUD"
+  },
+  "Inertia Share": {
+    "prefix": "inertia-share",
+    "body": [
+      "Inertia::share([",
+      "    '${1:key}' => fn () => ${2:\\$value},",
+      "]);"
+    ],
+    "description": "Share data globally"
+  },
+  "Inertia Middleware": {
+    "prefix": "inertia-middleware",
+    "body": [
+      "<?php",
+      "",
+      "namespace App\\Http\\Middleware;",
+      "",
+      "use Illuminate\\Http\\Request;",
+      "use Inertia\\Middleware;",
+      "",
+      "class HandleInertiaRequests extends Middleware",
+      "{",
+      "    protected \\$rootView = 'app';",
+      "",
+      "    public function share(Request \\$request): array",
+      "    {",
+      "        return array_merge(parent::share(\\$request), [",
+      "            'auth' => [",
+      "                'user' => \\$request->user(),",
+      "            ],",
+      "            'flash' => [",
+      "                'message' => fn () => \\$request->session()->get('message'),",
+      "            ],",
+      "        ]);",
+      "    }",
+      "}"
+    ],
+    "description": "Inertia middleware"
+  },
+  "Inertia Vue Page": {
+    "prefix": "inertia-vue-page",
+    "body": [
+      "<script setup>",
+      "import { Head } from '@inertiajs/vue3'",
+      "",
+      "defineProps({",
+      "    ${1:prop}: ${2:Object},",
+      "})",
+      "</script>",
+      "",
+      "<template>",
+      "    <Head title=\"${3:Page Title}\" />",
+      "",
+      "    <div>",
+      "        ${4:<!-- content -->}",
+      "    </div>",
+      "</template>"
+    ],
+    "description": "Inertia Vue 3 page"
+  },
+  "Inertia Vue Page Layout": {
+    "prefix": "inertia-vue-layout",
+    "body": [
+      "<script setup>",
+      "import { Head } from '@inertiajs/vue3'",
+      "import ${1:AppLayout} from '@/Layouts/${1:AppLayout}.vue'",
+      "",
+      "defineOptions({ layout: ${1:AppLayout} })",
+      "",
+      "defineProps({",
+      "    ${2:prop}: ${3:Object},",
+      "})",
+      "</script>",
+      "",
+      "<template>",
+      "    <Head title=\"${4:Page Title}\" />",
+      "",
+      "    <div>",
+      "        ${5:<!-- content -->}",
+      "    </div>",
+      "</template>"
+    ],
+    "description": "Inertia Vue 3 page with layout"
+  },
+  "Inertia Vue Form": {
+    "prefix": "inertia-vue-form",
+    "body": [
+      "<script setup>",
+      "import { useForm } from '@inertiajs/vue3'",
+      "",
+      "const form = useForm({",
+      "    ${1:field}: '',",
+      "})",
+      "",
+      "const submit = () => {",
+      "    form.${2:post}(route('${3:route.store}'))",
+      "}",
+      "</script>",
+      "",
+      "<template>",
+      "    <form @submit.prevent=\"submit\">",
+      "        <input v-model=\"form.${1:field}\" type=\"text\" />",
+      "        <div v-if=\"form.errors.${1:field}\">{{ form.errors.${1:field} }}</div>",
+      "",
+      "        <button type=\"submit\" :disabled=\"form.processing\">",
+      "            Submit",
+      "        </button>",
+      "    </form>",
+      "</template>"
+    ],
+    "description": "Inertia Vue form with useForm"
+  },
+  "Inertia useForm": {
+    "prefix": "inertia-useform",
+    "body": [
+      "const form = useForm({",
+      "    ${1:field}: ${2:''},",
+      "})"
+    ],
+    "description": "useForm composable"
+  },
+  "Inertia Form Post": {
+    "prefix": "inertia-form-post",
+    "body": ["form.post(route('${1:route.store}'), {", "    onSuccess: () => ${2:form.reset()},", "})"],
+    "description": "Form post submission"
+  },
+  "Inertia Form Put": {
+    "prefix": "inertia-form-put",
+    "body": ["form.put(route('${1:route.update}', ${2:id}))"],
+    "description": "Form put submission"
+  },
+  "Inertia Form Delete": {
+    "prefix": "inertia-form-delete",
+    "body": [
+      "form.delete(route('${1:route.destroy}', ${2:id}), {",
+      "    onBefore: () => confirm('${3:Are you sure?}'),",
+      "})"
+    ],
+    "description": "Form delete submission"
+  },
+  "Inertia Link": {
+    "prefix": "inertia-link",
+    "body": ["<Link :href=\"route('${1:route.name}')\">", "    ${2:Link Text}", "</Link>"],
+    "description": "Inertia Link component"
+  },
+  "Inertia Link Method": {
+    "prefix": "inertia-link-method",
+    "body": [
+      "<Link :href=\"route('${1:route.name}', ${2:id})\" method=\"${3:delete}\" as=\"button\">",
+      "    ${4:Delete}",
+      "</Link>"
+    ],
+    "description": "Inertia Link with method"
+  },
+  "Inertia Router Visit": {
+    "prefix": "inertia-visit",
+    "body": ["router.visit(route('${1:route.name}'))"],
+    "description": "Programmatic navigation"
+  },
+  "Inertia Router Reload": {
+    "prefix": "inertia-reload",
+    "body": ["router.reload({ only: ['${1:prop}'] })"],
+    "description": "Partial reload"
+  },
+  "Inertia usePage": {
+    "prefix": "inertia-usepage",
+    "body": ["const { ${1:auth} } = usePage().props"],
+    "description": "Access page props"
+  },
+  "Inertia React Page": {
+    "prefix": "inertia-react-page",
+    "body": [
+      "import { Head } from '@inertiajs/react'",
+      "",
+      "export default function ${1:PageName}({ ${2:prop} }) {",
+      "    return (",
+      "        <>",
+      "            <Head title=\"${3:Page Title}\" />",
+      "",
+      "            <div>",
+      "                ${4:{/* content */}}",
+      "            </div>",
+      "        </>",
+      "    )",
+      "}"
+    ],
+    "description": "Inertia React page"
+  },
+  "Inertia React Form": {
+    "prefix": "inertia-react-form",
+    "body": [
+      "import { useForm } from '@inertiajs/react'",
+      "",
+      "export default function ${1:FormComponent}() {",
+      "    const { data, setData, post, processing, errors } = useForm({",
+      "        ${2:field}: '',",
+      "    })",
+      "",
+      "    function submit(e) {",
+      "        e.preventDefault()",
+      "        post(route('${3:route.store}'))",
+      "    }",
+      "",
+      "    return (",
+      "        <form onSubmit={submit}>",
+      "            <input",
+      "                value={data.${2:field}}",
+      "                onChange={e => setData('${2:field}', e.target.value)}",
+      "            />",
+      "            {errors.${2:field} && <div>{errors.${2:field}}</div>}",
+      "",
+      "            <button type=\"submit\" disabled={processing}>",
+      "                Submit",
+      "            </button>",
+      "        </form>",
+      "    )",
+      "}"
+    ],
+    "description": "Inertia React form"
+  },
+  "Inertia Lazy Prop": {
+    "prefix": "inertia-lazy",
+    "body": ["'${1:prop}' => Inertia::lazy(fn () => ${2:\\$value}),"],
+    "description": "Lazy loaded prop"
+  },
+  "Inertia Defer": {
+    "prefix": "inertia-defer",
+    "body": ["'${1:prop}' => Inertia::defer(fn () => ${2:\\$value}),"],
+    "description": "Deferred prop"
+  },
+  "Inertia Location": {
+    "prefix": "inertia-location",
+    "body": ["return Inertia::location('${1:url}');"],
+    "description": "External redirect"
+  }
+}

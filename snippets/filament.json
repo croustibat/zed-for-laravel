@@ -1,0 +1,381 @@
+{
+  "Filament Resource": {
+    "prefix": "fil-resource",
+    "body": [
+      "<?php",
+      "",
+      "namespace App\\Filament\\Resources;",
+      "",
+      "use App\\Filament\\Resources\\${1:Model}Resource\\Pages;",
+      "use App\\Models\\${1:Model};",
+      "use Filament\\Forms;",
+      "use Filament\\Forms\\Form;",
+      "use Filament\\Resources\\Resource;",
+      "use Filament\\Tables;",
+      "use Filament\\Tables\\Table;",
+      "",
+      "class ${1:Model}Resource extends Resource",
+      "{",
+      "    protected static ?string \\$model = ${1:Model}::class;",
+      "",
+      "    protected static ?string \\$navigationIcon = 'heroicon-o-${2:rectangle-stack}';",
+      "",
+      "    public static function form(Form \\$form): Form",
+      "    {",
+      "        return \\$form",
+      "            ->schema([",
+      "                ${3://}",
+      "            ]);",
+      "    }",
+      "",
+      "    public static function table(Table \\$table): Table",
+      "    {",
+      "        return \\$table",
+      "            ->columns([",
+      "                ${4://}",
+      "            ])",
+      "            ->filters([",
+      "                //",
+      "            ])",
+      "            ->actions([",
+      "                Tables\\Actions\\EditAction::make(),",
+      "            ])",
+      "            ->bulkActions([",
+      "                Tables\\Actions\\BulkActionGroup::make([",
+      "                    Tables\\Actions\\DeleteBulkAction::make(),",
+      "                ]),",
+      "            ]);",
+      "    }",
+      "",
+      "    public static function getPages(): array",
+      "    {",
+      "        return [",
+      "            'index' => Pages\\List${1:Model}s::route('/'),",
+      "            'create' => Pages\\Create${1:Model}::route('/create'),",
+      "            'edit' => Pages\\Edit${1:Model}::route('/{record}/edit'),",
+      "        ];",
+      "    }",
+      "}"
+    ],
+    "description": "Filament Resource class"
+  },
+  "Filament TextInput": {
+    "prefix": "fil-text",
+    "body": ["Forms\\Components\\TextInput::make('${1:name}')", "    ->${2:required}()${3:,}"],
+    "description": "Text input field"
+  },
+  "Filament Textarea": {
+    "prefix": "fil-textarea",
+    "body": ["Forms\\Components\\Textarea::make('${1:name}')", "    ->rows(${2:3})${3:,}"],
+    "description": "Textarea field"
+  },
+  "Filament RichEditor": {
+    "prefix": "fil-rich",
+    "body": ["Forms\\Components\\RichEditor::make('${1:content}')", "    ->columnSpanFull()${2:,}"],
+    "description": "Rich text editor"
+  },
+  "Filament Select": {
+    "prefix": "fil-select",
+    "body": [
+      "Forms\\Components\\Select::make('${1:name}')",
+      "    ->options([",
+      "        '${2:key}' => '${3:value}',",
+      "    ])${4:,}"
+    ],
+    "description": "Select field"
+  },
+  "Filament Select Relationship": {
+    "prefix": "fil-select-rel",
+    "body": [
+      "Forms\\Components\\Select::make('${1:relation}_id')",
+      "    ->relationship('${1:relation}', '${2:name}')",
+      "    ->searchable()",
+      "    ->preload()${3:,}"
+    ],
+    "description": "Select with relationship"
+  },
+  "Filament Toggle": {
+    "prefix": "fil-toggle",
+    "body": ["Forms\\Components\\Toggle::make('${1:is_active}')", "    ->default(${2:true})${3:,}"],
+    "description": "Toggle field"
+  },
+  "Filament Checkbox": {
+    "prefix": "fil-checkbox",
+    "body": ["Forms\\Components\\Checkbox::make('${1:name}')${2:,}"],
+    "description": "Checkbox field"
+  },
+  "Filament DatePicker": {
+    "prefix": "fil-date",
+    "body": ["Forms\\Components\\DatePicker::make('${1:date}')${2:,}"],
+    "description": "Date picker"
+  },
+  "Filament DateTimePicker": {
+    "prefix": "fil-datetime",
+    "body": ["Forms\\Components\\DateTimePicker::make('${1:datetime}')${2:,}"],
+    "description": "DateTime picker"
+  },
+  "Filament FileUpload": {
+    "prefix": "fil-file",
+    "body": [
+      "Forms\\Components\\FileUpload::make('${1:attachment}')",
+      "    ->directory('${2:attachments}')",
+      "    ->${3:image}()${4:,}"
+    ],
+    "description": "File upload"
+  },
+  "Filament Section": {
+    "prefix": "fil-section",
+    "body": [
+      "Forms\\Components\\Section::make('${1:Section Title}')",
+      "    ->schema([",
+      "        ${2://}",
+      "    ])${3:,}"
+    ],
+    "description": "Form section"
+  },
+  "Filament Grid": {
+    "prefix": "fil-grid",
+    "body": [
+      "Forms\\Components\\Grid::make(${1:2})",
+      "    ->schema([",
+      "        ${2://}",
+      "    ])${3:,}"
+    ],
+    "description": "Form grid layout"
+  },
+  "Filament Card": {
+    "prefix": "fil-card",
+    "body": [
+      "Forms\\Components\\Card::make()",
+      "    ->schema([",
+      "        ${1://}",
+      "    ])${2:,}"
+    ],
+    "description": "Form card"
+  },
+  "Filament Repeater": {
+    "prefix": "fil-repeater",
+    "body": [
+      "Forms\\Components\\Repeater::make('${1:items}')",
+      "    ->schema([",
+      "        ${2://}",
+      "    ])",
+      "    ->columnSpanFull()${3:,}"
+    ],
+    "description": "Repeater field"
+  },
+  "Filament Hidden": {
+    "prefix": "fil-hidden",
+    "body": ["Forms\\Components\\Hidden::make('${1:name}')${2:,}"],
+    "description": "Hidden field"
+  },
+  "Filament TextColumn": {
+    "prefix": "fil-col-text",
+    "body": ["Tables\\Columns\\TextColumn::make('${1:name}')", "    ->${2:searchable}()${3:,}"],
+    "description": "Text column"
+  },
+  "Filament IconColumn": {
+    "prefix": "fil-col-icon",
+    "body": ["Tables\\Columns\\IconColumn::make('${1:is_active}')", "    ->boolean()${2:,}"],
+    "description": "Icon column (boolean)"
+  },
+  "Filament ImageColumn": {
+    "prefix": "fil-col-image",
+    "body": ["Tables\\Columns\\ImageColumn::make('${1:image}')", "    ->circular()${2:,}"],
+    "description": "Image column"
+  },
+  "Filament BadgeColumn": {
+    "prefix": "fil-col-badge",
+    "body": [
+      "Tables\\Columns\\TextColumn::make('${1:status}')",
+      "    ->badge()",
+      "    ->color(fn (string \\$state): string => match (\\$state) {",
+      "        '${2:draft}' => 'gray',",
+      "        '${3:published}' => 'success',",
+      "        default => 'primary',",
+      "    })${4:,}"
+    ],
+    "description": "Badge column"
+  },
+  "Filament Column Searchable Sortable": {
+    "prefix": "fil-col-ss",
+    "body": [
+      "Tables\\Columns\\TextColumn::make('${1:name}')",
+      "    ->searchable()",
+      "    ->sortable()${2:,}"
+    ],
+    "description": "Searchable and sortable column"
+  },
+  "Filament SelectFilter": {
+    "prefix": "fil-filter-select",
+    "body": [
+      "Tables\\Filters\\SelectFilter::make('${1:status}')",
+      "    ->options([",
+      "        '${2:draft}' => '${3:Draft}',",
+      "        '${4:published}' => '${5:Published}',",
+      "    ])${6:,}"
+    ],
+    "description": "Select filter"
+  },
+  "Filament TernaryFilter": {
+    "prefix": "fil-filter-ternary",
+    "body": ["Tables\\Filters\\TernaryFilter::make('${1:is_active}')${2:,}"],
+    "description": "Ternary filter (yes/no/all)"
+  },
+  "Filament Action": {
+    "prefix": "fil-action",
+    "body": [
+      "Tables\\Actions\\Action::make('${1:action}')",
+      "    ->icon('heroicon-o-${2:pencil}')",
+      "    ->action(fn (${3:Model} \\$record) => ${4:// action})${5:,}"
+    ],
+    "description": "Table action"
+  },
+  "Filament Action Confirm": {
+    "prefix": "fil-action-confirm",
+    "body": [
+      "Tables\\Actions\\Action::make('${1:delete}')",
+      "    ->icon('heroicon-o-trash')",
+      "    ->color('danger')",
+      "    ->requiresConfirmation()",
+      "    ->action(fn (${2:Model} \\$record) => \\$record->delete())${3:,}"
+    ],
+    "description": "Action with confirmation"
+  },
+  "Filament Page": {
+    "prefix": "fil-page",
+    "body": [
+      "<?php",
+      "",
+      "namespace App\\Filament\\Pages;",
+      "",
+      "use Filament\\Pages\\Page;",
+      "",
+      "class ${1:PageName} extends Page",
+      "{",
+      "    protected static ?string \\$navigationIcon = 'heroicon-o-${2:document-text}';",
+      "",
+      "    protected static string \\$view = 'filament.pages.${3:page-name}';",
+      "}"
+    ],
+    "description": "Custom Filament page"
+  },
+  "Filament Widget Stats": {
+    "prefix": "fil-widget-stats",
+    "body": [
+      "<?php",
+      "",
+      "namespace App\\Filament\\Widgets;",
+      "",
+      "use Filament\\Widgets\\StatsOverviewWidget as BaseWidget;",
+      "use Filament\\Widgets\\StatsOverviewWidget\\Stat;",
+      "",
+      "class ${1:StatsOverview} extends BaseWidget",
+      "{",
+      "    protected function getStats(): array",
+      "    {",
+      "        return [",
+      "            Stat::make('${2:Total Users}', ${3:\\App\\Models\\User::count()})",
+      "                ->description('${4:All registered users}')",
+      "                ->icon('heroicon-o-${5:users}'),",
+      "        ];",
+      "    }",
+      "}"
+    ],
+    "description": "Stats widget"
+  },
+  "Filament Widget Chart": {
+    "prefix": "fil-widget-chart",
+    "body": [
+      "<?php",
+      "",
+      "namespace App\\Filament\\Widgets;",
+      "",
+      "use Filament\\Widgets\\ChartWidget;",
+      "",
+      "class ${1:ChartName} extends ChartWidget",
+      "{",
+      "    protected static ?string \\$heading = '${2:Chart}';",
+      "",
+      "    protected function getData(): array",
+      "    {",
+      "        return [",
+      "            'datasets' => [",
+      "                [",
+      "                    'label' => '${3:Label}',",
+      "                    'data' => [${4:0, 10, 5, 2, 21}],",
+      "                ],",
+      "            ],",
+      "            'labels' => [${5:'Jan', 'Feb', 'Mar', 'Apr', 'May'}],",
+      "        ];",
+      "    }",
+      "",
+      "    protected function getType(): string",
+      "    {",
+      "        return '${6:line}';",
+      "    }",
+      "}"
+    ],
+    "description": "Chart widget"
+  },
+  "Filament Notification": {
+    "prefix": "fil-notify",
+    "body": [
+      "Filament\\Notifications\\Notification::make()",
+      "    ->title('${1:Title}')",
+      "    ->${2:success}()",
+      "    ->send();"
+    ],
+    "description": "Send notification"
+  },
+  "Filament Infolist TextEntry": {
+    "prefix": "fil-info-text",
+    "body": ["Infolists\\Components\\TextEntry::make('${1:name}')${2:,}"],
+    "description": "Infolist text entry"
+  },
+  "Filament Infolist Section": {
+    "prefix": "fil-info-section",
+    "body": [
+      "Infolists\\Components\\Section::make('${1:Section}')",
+      "    ->schema([",
+      "        ${2://}",
+      "    ])${3:,}"
+    ],
+    "description": "Infolist section"
+  },
+  "Filament Global Search": {
+    "prefix": "fil-search",
+    "body": [
+      "public static function getGlobalSearchResultTitle(Model \\$record): string",
+      "{",
+      "    return \\$record->${1:name};",
+      "}",
+      "",
+      "public static function getGloballySearchableAttributes(): array",
+      "{",
+      "    return ['${2:name}', '${3:email}'];",
+      "}"
+    ],
+    "description": "Global search configuration"
+  },
+  "Filament Navigation Group": {
+    "prefix": "fil-nav-group",
+    "body": ["protected static ?string \\$navigationGroup = '${1:Group Name}';"],
+    "description": "Navigation group"
+  },
+  "Filament Navigation Sort": {
+    "prefix": "fil-nav-sort",
+    "body": ["protected static ?int \\$navigationSort = ${1:1};"],
+    "description": "Navigation sort order"
+  },
+  "Filament Navigation Badge": {
+    "prefix": "fil-nav-badge",
+    "body": [
+      "public static function getNavigationBadge(): ?string",
+      "{",
+      "    return static::getModel()::count();",
+      "}"
+    ],
+    "description": "Navigation badge"
+  }
+}

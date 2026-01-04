@@ -1,0 +1,300 @@
+{
+  "Volt Component": {
+    "prefix": "volt",
+    "body": [
+      "<?php",
+      "",
+      "use function Livewire\\Volt\\{state};",
+      "",
+      "state(['${1:count}' => ${2:0}]);",
+      "",
+      "\\$increment = fn () => \\$this->${1:count}++;",
+      "",
+      "?>",
+      "",
+      "<div>",
+      "    <h1>{{ \\$${1:count} }}</h1>",
+      "    <button wire:click=\"increment\">+</button>",
+      "</div>"
+    ],
+    "description": "Volt single-file component"
+  },
+  "Volt Functional": {
+    "prefix": "volt-functional",
+    "body": [
+      "<?php",
+      "",
+      "use function Livewire\\Volt\\{state, computed};",
+      "",
+      "state(['${1:name}' => '']);",
+      "",
+      "\\$${2:greet} = computed(fn () => \"Hello, {\\$this->${1:name}}!\");",
+      "",
+      "?>",
+      "",
+      "<div>",
+      "    <input wire:model.live=\"${1:name}\" type=\"text\" placeholder=\"Name\" />",
+      "    <p>{{ \\$this->${2:greet} }}</p>",
+      "</div>"
+    ],
+    "description": "Volt functional component"
+  },
+  "Volt Class": {
+    "prefix": "volt-class",
+    "body": [
+      "<?php",
+      "",
+      "use Livewire\\Volt\\Component;",
+      "",
+      "new class extends Component {",
+      "    public ${1:string} \\$${2:name} = '';",
+      "",
+      "    public function ${3:save}()",
+      "    {",
+      "        ${4:// logic}",
+      "    }",
+      "}",
+      "",
+      "?>",
+      "",
+      "<div>",
+      "    <input wire:model=\"${2:name}\" type=\"text\" />",
+      "    <button wire:click=\"${3:save}\">Save</button>",
+      "</div>"
+    ],
+    "description": "Volt class-based component"
+  },
+  "Volt State": {
+    "prefix": "volt-state",
+    "body": ["state(['${1:property}' => ${2:''}]);"],
+    "description": "Volt state declaration"
+  },
+  "Volt State Multiple": {
+    "prefix": "volt-states",
+    "body": [
+      "state([",
+      "    '${1:property1}' => ${2:''},",
+      "    '${3:property2}' => ${4:''},",
+      "]);"
+    ],
+    "description": "Volt multiple state"
+  },
+  "Volt Computed": {
+    "prefix": "volt-computed",
+    "body": ["\\$${1:computed} = computed(fn () => ${2:\\$this->value});"],
+    "description": "Volt computed property"
+  },
+  "Volt Action": {
+    "prefix": "volt-action",
+    "body": ["\\$${1:action} = fn () => ${2:// action logic};"],
+    "description": "Volt action function"
+  },
+  "Volt Action With Args": {
+    "prefix": "volt-action-args",
+    "body": ["\\$${1:action} = fn (${2:\\$arg}) => ${3:// action logic};"],
+    "description": "Volt action with arguments"
+  },
+  "Volt Mount": {
+    "prefix": "volt-mount",
+    "body": [
+      "mount(function (${1:\\$param}) {",
+      "    \\$this->${2:property} = ${1:\\$param};",
+      "});"
+    ],
+    "description": "Volt mount hook"
+  },
+  "Volt Rules": {
+    "prefix": "volt-rules",
+    "body": [
+      "rules([",
+      "    '${1:field}' => '${2:required|string|max:255}',",
+      "]);"
+    ],
+    "description": "Volt validation rules"
+  },
+  "Volt With Pagination": {
+    "prefix": "volt-pagination",
+    "body": [
+      "<?php",
+      "",
+      "use App\\Models\\${1:Model};",
+      "use function Livewire\\Volt\\{with, usesPagination};",
+      "",
+      "usesPagination();",
+      "",
+      "with(fn () => ['${2:items}' => ${1:Model}::paginate(${3:10})]);",
+      "",
+      "?>",
+      "",
+      "<div>",
+      "    @foreach (\\$${2:items} as \\$item)",
+      "        <div>{{ \\$item->name }}</div>",
+      "    @endforeach",
+      "",
+      "    {{ \\$${2:items}->links() }}",
+      "</div>"
+    ],
+    "description": "Volt with pagination"
+  },
+  "Volt With": {
+    "prefix": "volt-with",
+    "body": ["with(fn () => ['${1:key}' => ${2:\\$value}]);"],
+    "description": "Volt with data"
+  },
+  "Volt Uses": {
+    "prefix": "volt-uses",
+    "body": ["uses([${1:SomeTrait::class}]);"],
+    "description": "Volt uses traits"
+  },
+  "Volt Layout": {
+    "prefix": "volt-layout",
+    "body": ["layout('${1:layouts.app}');"],
+    "description": "Volt layout"
+  },
+  "Volt Title": {
+    "prefix": "volt-title",
+    "body": ["title('${1:Page Title}');"],
+    "description": "Volt page title"
+  },
+  "Volt On Event": {
+    "prefix": "volt-on",
+    "body": [
+      "on(['${1:event-name}' => function (${2:\\$param}) {",
+      "    ${3:// handle event}",
+      "}]);"
+    ],
+    "description": "Volt event listener"
+  },
+  "Volt Form": {
+    "prefix": "volt-form",
+    "body": [
+      "<?php",
+      "",
+      "use function Livewire\\Volt\\{state, rules};",
+      "",
+      "state([",
+      "    '${1:name}' => '',",
+      "    '${2:email}' => '',",
+      "]);",
+      "",
+      "rules([",
+      "    '${1:name}' => 'required|string|max:255',",
+      "    '${2:email}' => 'required|email',",
+      "]);",
+      "",
+      "\\$submit = function () {",
+      "    \\$this->validate();",
+      "",
+      "    ${3:// Save logic}",
+      "",
+      "    \\$this->reset();",
+      "};",
+      "",
+      "?>",
+      "",
+      "<form wire:submit=\"submit\">",
+      "    <input wire:model=\"${1:name}\" type=\"text\" placeholder=\"Name\" />",
+      "    @error('${1:name}') <span>{{ \\$message }}</span> @enderror",
+      "",
+      "    <input wire:model=\"${2:email}\" type=\"email\" placeholder=\"Email\" />",
+      "    @error('${2:email}') <span>{{ \\$message }}</span> @enderror",
+      "",
+      "    <button type=\"submit\">Submit</button>",
+      "</form>"
+    ],
+    "description": "Volt form with validation"
+  },
+  "Volt Lazy": {
+    "prefix": "volt-lazy",
+    "body": ["lazy();"],
+    "description": "Volt lazy loading"
+  },
+  "Volt Protected": {
+    "prefix": "volt-protected",
+    "body": ["protected(['${1:property}']);"],
+    "description": "Volt protected properties"
+  },
+  "Volt Locked": {
+    "prefix": "volt-locked",
+    "body": ["locked(['${1:property}']);"],
+    "description": "Volt locked properties"
+  },
+  "Volt Modelable": {
+    "prefix": "volt-modelable",
+    "body": ["modelable(['${1:property}']);"],
+    "description": "Volt modelable property"
+  },
+  "Volt Updated": {
+    "prefix": "volt-updated",
+    "body": [
+      "updated(['${1:property}' => function (\\$value) {",
+      "    ${2:// handle update}",
+      "}]);"
+    ],
+    "description": "Volt updated hook"
+  },
+  "Volt Boot": {
+    "prefix": "volt-boot",
+    "body": [
+      "boot(function () {",
+      "    ${1:// runs on every request}",
+      "});"
+    ],
+    "description": "Volt boot hook"
+  },
+  "Volt Booted": {
+    "prefix": "volt-booted",
+    "body": [
+      "booted(function () {",
+      "    ${1:// runs after hydration}",
+      "});"
+    ],
+    "description": "Volt booted hook"
+  },
+  "Volt Full Page": {
+    "prefix": "volt-page",
+    "body": [
+      "<?php",
+      "",
+      "use App\\Models\\${1:Model};",
+      "use function Livewire\\Volt\\{layout, title, state, with};",
+      "",
+      "layout('${2:layouts.app}');",
+      "title('${3:Page Title}');",
+      "",
+      "state(['${4:search}' => '']);",
+      "",
+      "with(fn () => [",
+      "    '${5:items}' => ${1:Model}::when(\\$this->${4:search}, fn (\\$q) => \\$q->where('name', 'like', \"%{\\$this->${4:search}}%\"))->get(),",
+      "]);",
+      "",
+      "?>",
+      "",
+      "<div>",
+      "    <input wire:model.live=\"${4:search}\" type=\"search\" placeholder=\"Search...\" />",
+      "",
+      "    <ul>",
+      "        @foreach (\\$${5:items} as \\$item)",
+      "            <li>{{ \\$item->name }}</li>",
+      "        @endforeach",
+      "    </ul>",
+      "</div>"
+    ],
+    "description": "Volt full page component"
+  },
+  "Volt Navigate": {
+    "prefix": "volt-navigate",
+    "body": ["\\$this->redirect('${1:/}', navigate: true);"],
+    "description": "Volt SPA navigation"
+  },
+  "Volt Dispatch": {
+    "prefix": "volt-dispatch",
+    "body": ["\\$this->dispatch('${1:event-name}'${2:, param: \\$value});"],
+    "description": "Volt dispatch event"
+  },
+  "Volt JS": {
+    "prefix": "volt-js",
+    "body": ["\\$this->js('${1:alert(\"Hello\")}');"],
+    "description": "Volt execute JavaScript"
+  }
+}

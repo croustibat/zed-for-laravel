@@ -150,7 +150,7 @@ install_file "snippets/tasks.json" "$CONFIG_DIR/tasks.json" "tasks.json"
 echo ""
 echo "📝 Installing snippets..."
 
-SNIPPET_FILES=("php.json" "blade.json" "livewire.json")
+SNIPPET_FILES=("php.json" "blade.json" "livewire.json" "pest.json" "filament.json" "inertia.json" "volt.json")
 
 for snippet in "${SNIPPET_FILES[@]}"; do
     install_file "snippets/$snippet" "$CONFIG_DIR/snippets/$snippet" "$snippet"
